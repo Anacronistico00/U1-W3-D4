@@ -23,7 +23,6 @@ function click() {
 
 function btnExtract() {
   let randomNum = Math.floor(Math.random() * 90) + 1;
-  const celle = document.querySelectorAll('#tombolone div');
 
   if (numbers.includes(randomNum)) {
     btnExtract();
@@ -32,6 +31,7 @@ function btnExtract() {
 
   numbers.push(randomNum);
 
+  const celle = document.querySelectorAll('#tombolone div');
   for (let i = 0; i < celle.length; i++) {
     if (celle[i].innerText == randomNum) {
       celle[i].classList.add('extracted');

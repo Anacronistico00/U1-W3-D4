@@ -13,6 +13,9 @@ main {
     padding-top: 50px;
 }
 
+h1 {
+    font-size: 48px;
+}
 
 #tombolone {
     width: 70%;
