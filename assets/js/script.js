@@ -1,6 +1,7 @@
 const tombolone = document.getElementById('tombolone');
 const btnEstrai = document.getElementById('estrai');
-const numbers = [];
+const btnReset = document.getElementById('cancella');
+let numbers = [];
 
 document.addEventListener('load', init());
 
@@ -22,6 +23,11 @@ function click() {
 }
 
 function btnExtract() {
+  if (numbers.length === 90) {
+    alert('Hai estratto tutti i numeri');
+    btnEstrai.setAttribute('disabled', 'true');
+    return;
+  }
   let randomNum = Math.floor(Math.random() * 90) + 1;
 
   if (numbers.includes(randomNum)) {
@@ -37,6 +43,18 @@ function btnExtract() {
       celle[i].classList.add('extracted');
     }
   }
+}
+
+btnReset.addEventListener('click', function () {
+  ricomincia();
+});
+
+function ricomincia() {
+  const cellsNumber = document.querySelectorAll('#tombolone div');
+  cellsNumber.forEach((cell) => {
+    cell.classList.remove('extracted');
+  });
+  numbers = [];
 }
 
 console.log(numbers);
